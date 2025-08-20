@@ -39,7 +39,8 @@ function handleFileUpload(event) {
  * @param {string} content - File content
  */
 function parseTextFile(content) {
-    currentText = content.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    // Preserve original formatting - split by lines but keep empty lines and whitespace
+    currentText = content.split('\n');
     annotations = {};
 }
 
@@ -86,13 +87,17 @@ function displayText() {
         const hasAnnotation = annotations.hasOwnProperty(index);
         const annotatedClass = hasAnnotation ? 'annotated' : '';
         
+        // Preserve empty lines and whitespace
+        const displayLine = line.length === 0 ? '&nbsp;' : escapeHtml(line);
+        
         return `
             <div class="text-line ${annotatedClass} fade-in" 
                  data-line-index="${index}"
                  onclick="handleLineClick(${index})"
                  onmouseenter="showTooltip(event, ${index})"
-                 onmouseleave="hideTooltip()">
-                ${escapeHtml(line)}
+                 onmouseleave="hideTooltip()"
+                 style="white-space: pre-wrap; font-family: 'Courier New', monospace;">
+                ${displayLine}
             </div>
         `;
     }).join('');
