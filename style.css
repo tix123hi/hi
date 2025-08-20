@@ -1,0 +1,332 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.dark-mode .container {
+    background: rgba(44, 62, 80, 0.9);
+    border: 1px solid #4a5f7a;
+}
+
+.dark-mode .header {
+    border-bottom: 2px solid #4a5f7a;
+}
+
+.dark-mode .text-line {
+    border-bottom: 1px solid #4a5f7a;
+}
+
+.dark-mode .text-line:hover {
+    background: rgba(52, 73, 94, 0.3);
+}
+
+.dark-mode .annotated {
+    color: #74b9ff;
+}
+
+.dark-mode .tooltip {
+    background: #2c3e50;
+    color: #e0e0e0;
+    border: 1px solid #4a5f7a;
+}
+
+.dark-mode button {
+    background: #3498db;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background: #2980b9;
+}
+
+.dark-mode .file-input-wrapper {
+    background: #34495e;
+    border: 2px dashed #4a5f7a;
+}
+
+.dark-mode .mode-toggle {
+    background: #e74c3c;
+}
+
+.dark-mode .text-container {
+    background: #34495e;
+}
+
+.dark-mode .header h1 {
+    color: #ecf0f1;
+}
+
+.dark-mode .header p {
+    color: #bdc3c7;
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.header {
+    padding: 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid #e0e6ed;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 300;
+}
+
+.header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Controls Section */
+.controls {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-input-wrapper {
+    position: relative;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.file-input-wrapper:hover {
+    border-color: #3498db;
+    background: #e3f2fd;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.mode-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #e74c3c;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.mode-toggle:hover {
+    background: #c0392b;
+}
+
+/* Text Content Area */
+.content {
+    padding: 2rem;
+    min-height: 400px;
+}
+
+.text-container {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.text-line {
+    padding: 0.5rem;
+    border-bottom: 1px solid #f1f3f4;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    line-height: 1.8;
+}
+
+.text-line:hover {
+    background: rgba(52, 152, 219, 0.05);
+}
+
+.text-line:last-child {
+    border-bottom: none;
+}
+
+.annotated {
+    border-bottom: 2px dotted #3498db;
+    color: #2980b9;
+    font-weight: 500;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: absolute;
+    background: #2c3e50;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    max-width: 300px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #2c3e50;
+}
+
+/* Mode Indicators */
+.mode-indicator {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #27ae60;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
+.mode-indicator.reveal {
+    background: #f39c12;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    color: #7f8c8d;
+    font-style: italic;
+    padding: 4rem 2rem;
+}
+
+.empty-state h3 {
+    margin-bottom: 1rem;
+    color: #95a5a6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .controls {
+        padding: 1.5rem;
+        flex-direction: column;
+    }
+
+    .file-input-wrapper {
+        width: 100%;
+    }
+
+    .mode-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .tooltip {
+        max-width: 250px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animation for smooth interactions */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
