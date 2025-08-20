@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inkveil Studio - Text Annotation Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+            <h1>Inkveil Studio</h1>
+            <p>Lightweight text annotation tool for hidden insights</p>
+            <span class="mode-indicator" id="modeIndicator">Edit Mode</span>
+        </header>
+
+        <div class="controls">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".txt,.html" onchange="handleFileUpload(event)">
+                <span>📁 Upload .txt or .html file</span>
+            </div>
+            
+            <button onclick="toggleMode()" id="modeButton">Switch to Reveal Mode</button>
+            <button onclick="saveAnnotatedFile()" id="saveButton" disabled>💾 Save as HTML</button>
+            <button onclick="saveAsText()" id="saveTextButton" disabled>📝 Save as TXT</button>
+            <button onclick="clearAll()" id="clearButton">🗑️ Clear All</button>
+        </div>
+
+        <main class="content">
+            <div class="text-container" id="textContainer">
+                <div class="empty-state">
+                    <h3>Welcome to Inkveil Studio</h3>
+                    <p>Upload a text file to start adding hidden annotations. Click on any line to add your insights!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tooltip element -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
